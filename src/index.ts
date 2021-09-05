@@ -8,7 +8,7 @@ interface iPageInfo {
 
 const keyWord:string = "typescript";
 
-const url:string = `https://pt.wikipedia.org/w/index.php?search=${keyWord}&title=Especial:Pesquisar&profile=advanced&fulltext=1&ns0=1`
+const url:string = `https://en.wikipedia.org/w/index.php?search=${keyWord}&title=Special%3ASearch&fulltext=1&ns0=1`
 
 const getData = async (url)=>{
     
@@ -24,7 +24,7 @@ const getData = async (url)=>{
 
             const title:string = aElement.textContent;
             const path:string = aElement.getAttribute('href')
-            const url:string = `https://pt.wikipedia.org/${path}`
+            const url:string = `https://wikipedia.org/${path}`
 
             const pageInfo: iPageInfo = {
                 title,
