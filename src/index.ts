@@ -2,39 +2,23 @@ import axios from "axios";
 import { JSDOM } from "jsdom";
 
 interface iPageInfo {
-    title: string,
-    url: string,
+    ext: number,
+    index: number,
 }
 
-const keyWord:string = "typescript";
+async function getData() {
+    const index:number = 10;
+    for(let i = 0; i < index; i++){
+        const url:string = `https://clevert.com.br/t/pt-br/numbers-to-words/index/pt-br/${i}`
+                const data = (await axios.get(url)).data;
+                const {window} = new JSDOM(data);
+                const {document} = window;
 
-const url:string = `https://en.wikipedia.org/w/index.php?search=${keyWord}&title=Special%3ASearch&fulltext=1&ns0=1`
+                let number = document.querySelector('input').value;
 
-const getData = async (url)=>{
-    
-        const data = (await axios.get(url)).data;
-        const {window} = new JSDOM(data);
-        const {document} = window;
-
-        const listItems:Element[] = [ ...document.getElementsByClassName("mw-search-result") as any];
-    try {
-        const pageInfos: iPageInfo[] = listItems.map(listItem =>{
-        
-            const aElement = listItem.getElementsByTagName('a')[0];
-
-            const title:string = aElement.textContent;
-            const path:string = aElement.getAttribute('href')
-            const url:string = `https://wikipedia.org/${path}`
-
-            const pageInfo: iPageInfo = {
-                title,
-                url,
-            }
-            return pageInfo;
-        });
-        console.log(pageInfos)
-    } catch (error) {
-        console.log(error);
+                console.log(number);
     }
 }
-getData(url);
+
+getData();
+
