@@ -7,7 +7,10 @@ let data = {
 };
 
 async function writeDataOnJson(number, extNumber) {
-    data.table.push({ extNumber: extNumber, index: number });
+    data.table.push({
+        extNumber: extNumber,
+        index: number,
+    });
     let jsonData = JSON.stringify(data);
     fs.writeFile("test.json", jsonData, function (err) {
         if (err) {
