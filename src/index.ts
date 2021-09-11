@@ -17,13 +17,13 @@ async function writeDataOnJson (number, extNumber){
 
     data.table.push({extNumber: extNumber, index:number})
 
-        console.log(data);
+    let jsonData = JSON.stringify(data)
         
-//     fs.writeFile("test.txt", data, function(err) {
-//     if (err) {
-//         console.log(err);
-//     }
-//          });
+    fs.writeFile("test.json", jsonData, function(err) {
+    if (err) {
+        console.log(err);
+    }
+         });
 }
 
 async function getData() {
