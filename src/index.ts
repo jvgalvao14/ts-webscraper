@@ -1,9 +1,29 @@
 import axios from "axios";
 import { JSDOM } from "jsdom";
+var fs = require('fs');
 
 interface iPageInfo {
-    ext: number,
+    ext: string,
     index: number,
+}
+
+let data = {
+    table:[
+        
+    ]
+};
+
+async function writeDataOnJson (number, extNumber){
+
+    data.table.push({extNumber: extNumber, index:number})
+
+        console.log(data);
+        
+//     fs.writeFile("test.txt", data, function(err) {
+//     if (err) {
+//         console.log(err);
+//     }
+//          });
 }
 
 async function getData() {
@@ -15,10 +35,7 @@ async function getData() {
                 const {document} = window;
 
                 let number = document.querySelector('input').value;
-
-                console.log(number);
-    }
-}
-
-getData();
-
+                let extNumber = document.getElementById('resposta').innerHTML;
+                writeDataOnJson(number,extNumber)
+    }}
+    getData()
