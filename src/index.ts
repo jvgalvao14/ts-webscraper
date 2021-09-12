@@ -20,7 +20,7 @@ async function writeDataOnJson(number, extNumber) {
 }
 
 async function getData() {
-    const index: number = 10;
+    const index: number = 300;
     for (let i = 0; i < index; i++) {
         const url: string = `https://clevert.com.br/t/pt-br/numbers-to-words/index/pt-br/${i}`;
         const data = (await axios.get(url)).data;
