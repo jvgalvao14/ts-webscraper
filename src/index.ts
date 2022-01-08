@@ -74,42 +74,34 @@ if(cluster.isPrimary){
     switch (cluster.worker.id) {
         case 1:
             getData(index1, i1, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 2:
             getData(index2, i2, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 3:
             getData(index3, i3, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 4:
             getData(index4, i4, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 5:
             getData(index5, i5, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 6:
             getData(index6, i6, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 7:
             getData(index7, i7, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         case 8:
             getData(index8, i8, cluster.worker.id)
-            .then(process.exit(0))
 
             break;
         default:
